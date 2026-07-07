@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VFF 2026 — Vietnam Financial Forum · Lịch trình</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --navy: #0F2A3D;
+    --navy-deep: #0A1D2B;
+    --paper: #F6F3EC;
+    --card: #FFFFFF;
+    --gold: #B98A3D;
+    --gold-soft: #E9DCC2;
+    --teal: #2E6B65;
+    --ink: #1C2B33;
+    --ink-soft: #5A6B74;
+    --line: #E1DACB;
+    --minh: #C0442B;
+    --minh-bg: #FBEDE8;
+    --radius: 10px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* subtle paper texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(15,42,61,0.035) 1px, transparent 0);
+    background-size: 16px 16px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 20px 80px; position:relative; z-index:1; }
+
+  /* ---------- HEADER ---------- */
+  header{
+    background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color:#fff;
+    padding:44px 20px 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:60px;
+    background:var(--paper);
+    clip-path: polygon(0 100%, 100% 100%, 100% 40%, 0 100%);
+  }
+  .header-inner{ max-width:920px; margin:0 auto; position:relative; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold-soft);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:""; width:22px; height:1px; background:var(--gold); display:inline-block; }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(32px, 6vw, 52px);
+    line-height:1.05;
+    margin:14px 0 10px;
+    letter-spacing:-0.01em;
+  }
+  h1 em{ font-style:italic; font-weight:400; color:var(--gold-soft); }
+  .subhead{
+    color:rgba(255,255,255,0.72);
+    font-size:15px;
+    max-width:520px;
+    line-height:1.55;
+    margin-bottom:24px;
+  }
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+  }
+  .meta-chip{
+    border:1px solid rgba(255,255,255,0.22);
+    padding:7px 12px;
+    border-radius:100px;
+    color:rgba(255,255,255,0.85);
+    display:flex; align-items:center; gap:6px;
+  }
+  .meta-chip svg{ width:13px; height:13px; opacity:0.8; }
+
+  /* ---------- ANH MINH SUMMARY BOX ---------- */
+  .minh-box{
+    margin-top:-58px;
+    background:var(--minh-bg);
+    border:1.5px solid var(--minh);
+    border-radius:var(--radius);
+    padding:22px 24px;
+    position:relative;
+    z-index:2;
+    box-shadow:0 12px 30px -14px rgba(192,68,43,0.35);
+  }
+  .minh-box-header{
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:14px;
+  }
+  .minh-avatar{
+    width:34px; height:34px; border-radius:50%;
+    background:var(--minh); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:600; font-size:15px;
+    flex-shrink:0;
+  }
+  .minh-box-header h2{
+    font-family:'Fraunces', serif;
+    font-size:20px; font-weight:600; margin:0;
+    color:var(--minh);
+  }
+  .minh-box-header span{
+    display:block; font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace;
+  }
+  .minh-items{ display:flex; flex-direction:column; gap:10px; }
+  .minh-item{
+    display:grid;
+    grid-template-columns:78px 1fr;
+    gap:14px;
+    padding:11px 12px;
+    background:#fff;
+    border-radius:8px;
+    border:1px solid rgba(192,68,43,0.18);
+  }
+  .minh-item .time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; font-weight:500; color:var(--minh);
+  }
+  .minh-item .body strong{ display:block; font-size:14px; margin-bottom:2px; }
+  .minh-item .body .loc{ font-size:12.5px; color:var(--ink-soft); }
+  .minh-item .tag{
+    display:inline-block; margin-top:4px;
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    text-transform:uppercase; letter-spacing:0.06em;
+    background:var(--minh-bg); color:var(--minh);
+    padding:2px 7px; border-radius:4px;
+  }
+
+  /* ---------- DAY NAV ---------- */
+  .day-nav{
+    display:flex; gap:8px; margin:38px 0 26px;
+    position:sticky; top:0; z-index:20;
+    background:var(--paper);
+    padding:14px 0 10px;
+    border-bottom:1px solid var(--line);
+  }
+  .day-btn{
+    flex:1;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:11px 10px;
+    background:transparent;
+    border:1px solid var(--line);
+    border-radius:8px;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all 0.15s ease;
+    text-align:center;
+  }
+  .day-btn strong{ display:block; font-family:'Fraunces',serif; font-size:15px; font-weight:600; color:var(--ink); }
+  .day-btn.active{
+    background:var(--navy);
+    border-color:var(--navy);
+    color:var(--gold-soft);
+  }
+  .day-btn.active strong{ color:#fff; }
+
+  /* ---------- DAY PANELS ---------- */
+  .day-panel{ display:none; animation:fade 0.35s ease; }
+  .day-panel.active{ display:block; }
+  @keyframes fade{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .section-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; text-transform:uppercase; letter-spacing:0.12em;
+    color:var(--teal);
+    display:flex; align-items:center; gap:10px;
+    margin:34px 0 14px;
+  }
+  .section-label::after{ content:""; flex:1; height:1px; background:var(--line); }
+  .section-label:first-child{ margin-top:0; }
+
+  /* timeline items (plenary / non-track) */
+  .timeline{ position:relative; padding-left:26px; }
+  .timeline::before{
+    content:""; position:absolute; left:6px; top:4px; bottom:4px; width:1.5px;
+    background:var(--line);
+  }
+  .t-item{ position:relative; padding-bottom:18px; }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{
+    content:""; position:absolute; left:-26px; top:5px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--card); border:2px solid var(--teal);
+  }
+  .t-item.highlight::before{ background:var(--gold); border-color:var(--gold); }
+  .t-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:13px 16px;
+  }
+  .t-time{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--teal);
+    font-weight:500; margin-bottom:4px;
+  }
+  .t-title{ font-family:'Fraunces', serif; font-weight:600; font-size:16px; margin-bottom:5px; line-height:1.3; }
+  .t-people{ font-size:13px; color:var(--ink-soft); line-height:1.6; }
+  .t-people b{ color:var(--ink); font-weight:600; }
+  .t-role{ font-style:italic; color:#8B98A0; }
+  .t-loc{
+    display:inline-flex; align-items:center; gap:4px;
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    color:var(--ink-soft); margin-top:8px;
+  }
+
+  /* ---------- TRACK TABS ---------- */
+  .track-tabs{ display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+  .track-tab{
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    padding:8px 14px; border-radius:100px;
+    border:1px solid var(--line); background:#fff;
+    color:var(--ink-soft); cursor:pointer;
+  }
+  .track-tab.active{ background:var(--teal); border-color:var(--teal); color:#fff; }
+  .track-panel{ display:none; }
+  .track-panel.active{ display:block; }
+  .track-heading{
+    font-family:'Fraunces', serif; font-weight:600; font-size:15px;
+    color:var(--teal); margin-bottom:2px;
+  }
+  .track-room{ font-size:12px; color:var(--ink-soft); margin-bottom:14px; font-family:'IBM Plex Mono', monospace; }
+
+  /* evening / dinner cards */
+  .evening-card{
+    background:var(--navy);
+    color:#fff;
+    border-radius:10px;
+    padding:18px 20px;
+    margin-bottom:12px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:16px;
+    align-items:start;
+  }
+  .evening-card .time{
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    color:var(--gold-soft); white-space:nowrap; padding-top:2px;
+  }
+  .evening-card .title{ font-family:'Fraunces', serif; font-size:16px; font-weight:600; margin-bottom:3px; }
+  .evening-card .desc{ font-size:13px; color:rgba(255,255,255,0.7); }
+  .evening-card.optional{ background:#fff; border:1px dashed var(--line); color:var(--ink); }
+  .evening-card.optional .time{ color:var(--ink-soft); }
+  .evening-card.optional .desc{ color:var(--ink-soft); }
+
+  /* private meetings */
+  .priv-grid{ display:flex; flex-direction:column; gap:10px; }
+  .priv-item{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:13px 16px;
+    display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center;
+  }
+  .priv-item .who{ font-family:'Fraunces', serif; font-weight:600; font-size:14.5px; }
+  .priv-item .role{ font-size:12.5px; color:var(--ink-soft); }
+  .priv-item .when{
+    text-align:right; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--teal);
+  }
+  .priv-item .loc{ text-align:right; font-size:11px; color:var(--ink-soft); }
+
+  /* footer */
+  footer{
+    text-align:center; padding:30px 20px 10px;
+    font-family:'IBM Plex Mono', monospace; font-size:11px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:600px){
+    .minh-item{ grid-template-columns:1fr; gap:3px; }
+    .minh-item .time{ font-size:11.5px; }
+    .day-nav{ flex-direction:row; }
+    .priv-item{ grid-template-columns:1fr; }
+    .priv-item .when, .priv-item .loc{ text-align:left; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="eyebrow">Techcombank · TCB Group Delegation</div>
+    <h1>Vietnam Financial<br><em>Forum 2026</em></h1>
+    <p class="subhead">Lịch trình đầy đủ hai ngày tại Ariyana International Convention Centre, Đà Nẵng — các phiên toàn thể, track chuyên đề, và các cuộc họp riêng của đoàn TCB.</p>
+    <div class="meta-row">
+      <span class="meta-chip">📍 Ariyana Convention Centre, Đà Nẵng</span>
+      <span class="meta-chip">📅 9–10 Tháng 7, 2026</span>
+      <span class="meta-chip">🏨 Furama Resort Gallery</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ANH MINH SUMMARY -->
+  <div class="minh-box">
+    <div class="minh-box-header">
+      <div class="minh-avatar">M</div>
+      <div>
+        <h2>Lịch riêng — Anh Minh</h2>
+        <span>Tổng hợp các mốc cần có mặt trong 2 ngày</span>
+      </div>
+    </div>
+    <div class="minh-items">
+      <div class="minh-item">
+        <div class="time">Ngày 9/7<br>10:45</div>
+        <div class="body">
+          <strong>Phỏng vấn VTV</strong>
+          <div class="loc">Foyer, ACC</div>
+          <span class="tag">Media</span>
+        </div>
+      </div>
+      <div class="minh-item">
+        <div class="time">Ngày 9/7<br>19:00–20:30</div>
+        <div class="body">
+          <strong>VFF Dinner cùng Jens Lottner</strong>
+          <div class="loc">Furama Resort Gallery · Invite only</div>
+          <span class="tag">Jens Lottner, Xuan Minh, PC</span>
+        </div>
+      </div>
+      <div class="minh-item">
+        <div class="time">Ngày 10/7<br>19:00–21:00</div>
+        <div class="body">
+          <strong>TCB Exclusive Dinner — Phát biểu Closing Remarks</strong>
+          <div class="loc">Furama Resort Gallery · TCB participants + Guests (~30)</div>
+          <span class="tag">Speaking role</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY NAV -->
+  <div class="day-nav">
+    <button class="day-btn active" data-day="day1"><strong>Ngày 1</strong>9 Tháng 7</button>
+    <button class="day-btn" data-day="day2"><strong>Ngày 2</strong>10 Tháng 7</button>
+    <button class="day-btn" data-day="day3"><strong>Riêng</strong>Họp private</button>
+  </div>
+
+  <!-- ===================== DAY 1 ===================== -->
+  <div class="day-panel active" id="day1">
+
+    <div class="section-label">Sáng · Plenary Hall</div>
+    <div class="timeline">
+      <div class="t-item"><div class="t-card">
+        <div class="t-time">09:00 – 09:10</div>
+        <div class="t-title">National Vision for Vietnam's Financial Future</div>
+        <div class="t-people">Speech</div>
+      </div></div>
+      <div class="t-item"><div class="t-card">
+        <div class="t-time">09:20 – 09:30</div>
+        <div class="t-title">Welcome by the Steering Committee of VFF 2026</div>
+        <div class="t-people"><b>Chris Vanloon</b> <span class="t-role">— Chairman, Central Vietnam Business Alliance CVBA</span></div>
+      </div></div>
+      <div class="t-item"><div class="t-card">
+        <div class="t-time">09:45 – 10:10</div>
+        <div class="t-title">Why Vietnam, Why Now?</div>
+        <div class="t-people"><b>Jeffrey Singer</b> <span class="t-role">— Former CEO, Dubai International Finance Center</span></div>
+      </div></div>
+      <div class="t-item"><div class="t-card">
+        <div class="t-time">10:30 – 10:45</div>
+        <div class="t-title">A Domestic Market Perspective on the VIFC</div>
+        <div class="t-people"><b>Jens Lottner</b> <span class="t-role">— CEO, Techcombank (TCB)</span></div>
+      </div></div>
+      <div class="t-item highlight"><div class="t-card">
+        <div class="t-time">10:45</div>
+        <div class="t-title">🎙️ Anh Minh — Phỏng vấn VTV</div>
+        <div class="t-people">Foyer, ACC</div>
+      </div></div>
+      <div class="t-item"><div class="t-card">
+        <div class="t-time">11:15 – 11:45</div>
+        <div class="t-title">Assessing the Current State of VIFC Buildout</div>
+        <div class="t-people">Panel · Mod: <b>Jochen Biedermann</b>, <b>Rich McClellan</b>, <b>Kevin B. Iwanaga</b>, <b>Stephen Glynn</b></div>
+      </div></div>
+      <div class="t-item"><div class="t-card">
+        <div class="t-time">12:00 – 12:45</div>
+        <div class="t-title">What would it take to bring $1B into Vietnam?</div>
+        <div class="t-people">Panel · Mod: <b>Stewart Ferns</b>, <b>Karen Liu</b>, <b>Li Fan</b>, <b>Pankaj Chauhan</b>, <b>Khoi Vu</b></div>
+      </div></div>
+    </div>
+
+    <div class="section-label">Trưa</div>
+    <div class="timeline">
+      <div class="t-item"><div class="t-card">
+        <div class="t-time">12:00 – 13:30</div>
+        <div class="t-title">Lunch Buffet</div>
+        <div class="t-loc">📍 Networking Room</div>
+      </div></div>
+      <div class="t-item"><div class="t-card">
+        <div class="t-time">12:45 – 13:45</div>
+        <div class="t-title">Luncheon Meeting (Invite only): IFCs & The Future of Tech-enabled Finance</div>
+        <div class="t-people">Mod: <b>Ly Nguyen</b> · <b>Jochen Biedermann</b>, <b>Alena Dolgova</b>, <b>Stephen Glynn</b>, <b>James Wong</b>, <b>Dr. Euna Kim</b>, <b>Bhaskar Dasgupta</b></div>
+        <div class="t-loc">📍 My Son Room, Upstairs</div>
+      </div></div>
+    </div>
+
+    <div class="section-label">Chiều — chọn 1 trong 3 Track</div>
+    <div class="track-tabs" data-group="d1">
+      <button class="track-tab active" data-target="d1-A">Track A — Trade &amp; Supply Chain</button>
+      <button class="track-tab" data-target="d1-B">Track B — Climate Finance</button>
+      <button class="track-tab" data-target="d1-C">Track C — Talent Ecosystem</button>
+    </div>
+
+    <div class="track-panel active" id="d1-A">
+      <div class="track-heading">Trade, Supply Chain and Commodities Finance</div>
+      <div class="track-room">📍 Plenary Hall</div>
+      <div class="timeline">
+        <div class="t-item"><div class="t-card"><div class="t-time">14:05 – 14:20</div><div class="t-title">Building a Trade &amp; Supply Chain Finance Hub: A Strategic Pathway for VIFC in Danang</div><div class="t-people"><b>Jinchang Lai</b> <span class="t-role">— IFC</span></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">14:20 – 15:25</div><div class="t-title">Building a Vietnam's Regional Trade &amp; Supply Chain Finance Hub in VIFC Danang</div><div class="t-people">Mod: <b>Huyen Pham</b> · <b>Surajit Rakshit</b>, <b>Thomas Chen</b>, <b>Byron Pei</b>, <b>Ha Huy Cuong</b>, <b>Christopher J. Wohlert</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">15:25 – 15:30</div><div class="t-title">Solving Real Bottlenecks in Vietnam Trade &amp; Supply Chain Finance</div><div class="t-people"><b>Huyen Pham</b>, IFC</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">15:45 – 16:45</div><div class="t-title">Commodities Finance &amp; Trading: A New Opportunity for Vietnam</div><div class="t-people">Mod: <b>Ryan Galloway</b> · <b>L. Chris Lu</b>, <b>Stewart Ferns</b></div></div></div>
+      </div>
+    </div>
+
+    <div class="track-panel" id="d1-B">
+      <div class="track-heading">Climate &amp; Sustainable Finance</div>
+      <div class="track-room">📍 Auditorium</div>
+      <div class="timeline">
+        <div class="t-item"><div class="t-card"><div class="t-time">14:00 – 14:15</div><div class="t-title">Scaling Climate Finance in Emerging Markets</div><div class="t-people"><b>Thomas J McMahon</b> — Co-Founder ACX Pte Ltd, AirCarbon Technologies</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">14:15 – 15:30</div><div class="t-title">Making Climate Finance Work in Vietnam</div><div class="t-people">Mod: <b>Matthew McGarvey</b> · <b>Duy Quang Bui</b>, <b>Alex Downs</b>, <b>Henry Soediarko</b>, <b>Thomas J McMahon</b>, <b>Vincent Choi</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">15:45 – 16:45</div><div class="t-title">Who Pays? Capital Flows into Energy, Industry &amp; Infrastructure Transition</div><div class="t-people">Mod: <b>Raf Manji</b> · <b>Yulanda Chung</b>, <b>Naeeda Crishna Morgado</b>, <b>Samresh Kumar</b>, <b>Michael Grimm</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">16:45 – 17:00</div><div class="t-title">Wrap up: What are the Top 5 Ecosystem Gaps?</div><div class="t-people"><b>Matthew McGarvey</b></div></div></div>
+      </div>
+    </div>
+
+    <div class="track-panel" id="d1-C">
+      <div class="track-heading">Building Vietnam's Financial Talent Ecosystem</div>
+      <div class="track-room">📍 Hoi An Room</div>
+      <div class="timeline">
+        <div class="t-item"><div class="t-card"><div class="t-time">14:00 – 14:10</div><div class="t-title">UK Experience in Financial Talent Standards and Certification</div><div class="t-people"><b>Alexandra Smith</b> — British Consul General, HCMC</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">14:10 – 14:25</div><div class="t-title">From the Room: Key Findings from the HCMC Diagnostic Session</div><div class="t-people"><b>Ambassador Marc Knapper (ret.)</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">14:25 – 14:40</div><div class="t-title">Building an International Finance Talent Hub: The Role of Universities</div><div class="t-people"><b>Dr. Dang Huu Man</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">14:40 – 14:55</div><div class="t-title">The Diaspora Dividend: Mobilizing Overseas Vietnamese Executives for the IFC</div><div class="t-people"><b>Patrick Phat Nguyen</b>, <b>Quang Do</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">14:55 – 15:10</div><div class="t-title">AI, Fintech &amp; the Future Financial Workforce: What Talent Needs Vietnam?</div><div class="t-people"><b>Mr. Vu Huu Dien</b> — CEO, HD Securities; Chairman, Fintech AI</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">15:10 – 15:25</div><div class="t-title">Building Vietnam's Financial Talent Ecosystem</div><div class="t-people"><b>Ioannis Mantzaris</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">15:45 – 16:00</div><div class="t-title">From Diagnosis to Action: Solutions for Vietnam's Financial Talent Gap</div><div class="t-people"><b>Trang Dang</b> — Head of Vietnam, ICAEW</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">16:00 – 16:15</div><div class="t-title">The View from Singapore's Accountancy Body on Credential Portability</div><div class="t-people"><b>Phu Nguyen</b> — ISCA</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">16:15</div><div class="t-title">What Vietnam Will Actually Do? — Moderated Discussion</div><div class="t-people"><b>Dr. Do Thi Thanh Nhan</b>, <b>Willem Smit</b></div></div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Tối</div>
+    <div class="evening-card">
+      <div class="time">17:30–19:00</div>
+      <div>
+        <div class="title">Appreciation Night &amp; Executive Networking</div>
+        <div class="desc">Networking Room</div>
+      </div>
+    </div>
+    <div class="evening-card">
+      <div class="time">19:00–20:30</div>
+      <div>
+        <div class="title">🎙️ VFF Dinner — Anh Minh cùng bác Jens Lottner &amp; khách mời</div>
+        <div class="desc">Furama Resort Gallery · Invite only · Jens Lottner, Xuan Minh, PC</div>
+      </div>
+    </div>
+    <div class="evening-card optional">
+      <div class="time">Optional</div>
+      <div>
+        <div class="title">Anh chị khác: Tự túc ăn uống</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== DAY 2 ===================== -->
+  <div class="day-panel" id="day2">
+
+    <div class="section-label">Sáng — chọn 1 trong 3 Track</div>
+    <div class="track-tabs" data-group="d2">
+      <button class="track-tab active" data-target="d2-A">Track A — Capital Mobilization</button>
+      <button class="track-tab" data-target="d2-B">Track B — Digital Ecosystem</button>
+      <button class="track-tab" data-target="d2-C">Track C — Supporting Services</button>
+    </div>
+
+    <div class="track-panel active" id="d2-A">
+      <div class="track-heading">Capital Mobilization &amp; Market Infrastructure</div>
+      <div class="track-room">📍 Plenary Hall</div>
+      <div class="timeline">
+        <div class="t-item"><div class="t-card"><div class="t-time">09:00 – 09:15</div><div class="t-title">Building the Pipes: Market Infrastructure, FX &amp; Derivatives</div><div class="t-people"><b>Bhaskar Dasgupta</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">09:15 – 10:00</div><div class="t-title">Building the System for a Successful VIFC</div><div class="t-people">Mod: <b>Robin Copley</b> · <b>Bhaskar Dasgupta</b>, <b>Rajesh Sabari</b>, <b>James Ient</b>, <b>Virginie Barbot</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">10:15 – 10:30</div><div class="t-title">Vietnam Innovation &amp; Private Capital Report 2026</div><div class="t-people"><b>Max-F. Scheichenost</b> — Founder, Vietnam Private Capital Agency</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">10:30 – 11:15</div><div class="t-title">Private Capital Channels: VC, PE &amp; Growth Equity in Vietnam</div><div class="t-people">Mod: <b>Max-F. Scheichenost</b> · <b>Winston Mandrawa</b>, <b>Tim Do</b>, <b>Justin Nguyen</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">11:15 – 12:00</div><div class="t-title">Where Will the Next $100B Go? Infrastructure, Energy and Industrial Growth</div><div class="t-people">Mod: <b>Michael Kokalari</b> · <b>Pham Hong Diep</b>, <b>Brett Krause</b>, <b>Anh Nguyen</b>, <b>Doan Quoc Huy</b> <span class="t-role">(Head of Large Corporate Banking, Techcombank)</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="track-panel" id="d2-B">
+      <div class="track-heading">Digital Ecosystem — Building the Financial Plumbing of VIFC</div>
+      <div class="track-room">📍 Auditorium</div>
+      <div class="timeline">
+        <div class="t-item"><div class="t-card"><div class="t-time">09:00 – 10:15</div><div class="t-title">Global Trends Shaping Digital Payments and Blockchain</div><div class="t-people">Mod: <b>Ankita Dhawan</b> · <b>Quynh Le</b>, <b>Vince Turcotte</b>, <b>Jeffrey Tchui</b>, <b>Marc Krisjanous</b>, <b>Kristi Swartz</b>, <b>Julien Martin</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">10:30 – 11:45</div><div class="t-title">Digital Assets as a Capital Gateway for VIFC</div><div class="t-people">Mod: <b>Catarina Quynh</b> · <b>Nha Tran</b>, <b>Trung Nguyen</b>, <b>Kevin Iwanaga</b>, <b>Mohammad Akhavannik</b>, <b>Huynh Thanh Tuyen</b></div></div></div>
+      </div>
+    </div>
+
+    <div class="track-panel" id="d2-C">
+      <div class="track-heading">Third-Party Supporting Services for the Financial Sector</div>
+      <div class="track-room">📍 Hoi An Room · 09:00–12:00</div>
+      <div class="timeline">
+        <div class="t-item"><div class="t-card"><div class="t-time">09:00 – 09:15</div><div class="t-title">Welcome and Introduction</div><div class="t-people"><b>Huyen Pham</b> — IFC/WBG</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Rapid Sessions</div><div class="t-title">Third-Party Supporting Services for Financial Sector</div><div class="t-people"><b>Professor Xuan Thao Nguyen</b> — Asian Law Center</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Rapid Sessions</div><div class="t-title">Unlocking Alternative Finance for VIFC Da Nang: Funding Pathways for NDTLs</div><div class="t-people"><b>Zhang Sheng</b> — Guotai Junan Securities</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Rapid Sessions</div><div class="t-title">Asset Management Services: Financial "Plumbing" for Mobilizing Capital</div><div class="t-people"><b>Chen Bin</b> — Shenzhen First Overseas Asset Management</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Rapid Sessions</div><div class="t-title">Collateral Management: Financial Market Infrastructure for VIFC Da Nang</div><div class="t-people"><b>To Manh Linh</b></div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Rapid Sessions</div><div class="t-title">Trends in Leveraging Data &amp; Analytics for Open Finance and Open Banking</div><div class="t-people"><b>Le Thanh Tam</b> — IDG Vietnam &amp; ASEAN</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Rapid Sessions</div><div class="t-title">Data and Analytics in Open Banking: Commercial Bank Experience</div><div class="t-people"><b>Nguyen Anh Dung</b> — Nam A Bank</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Rapid Sessions</div><div class="t-title">Third-party Data and Analytics Services for VIFC Da Nang</div><div class="t-people"><b>Nguyen Huu Hieu</b> — FiinGroup Vietnam</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Rapid Sessions</div><div class="t-title">The Role of Trade Credit Insurance as Market Plumbing</div><div class="t-people"><b>Grishma Kewada</b> — Coface</div></div></div>
+        <div class="t-item"><div class="t-card"><div class="t-time">Wrap-up</div><div class="t-title">Closing</div><div class="t-people">by <b>Huyen Pham</b></div></div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Trưa</div>
+    <div class="timeline">
+      <div class="t-item"><div class="t-card"><div class="t-time">12:00 – 13:30</div><div class="t-title">Lunch Buffet</div><div class="t-loc">📍 Networking Room</div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">12:30 – 13:30</div><div class="t-title">Luncheon Meeting: Fundraising Masterclass</div><div class="t-people"><b>Bhaskar Dasgupta</b></div><div class="t-loc">📍 Hoi An Room</div></div></div>
+    </div>
+
+    <div class="section-label">Chiều</div>
+    <div class="timeline">
+      <div class="t-item highlight"><div class="t-card">
+        <div class="t-time">13:45 – 14:30</div>
+        <div class="t-title">👤 Anh Tuấn Anh — Mobilizing US &amp; International Institutional Capital</div>
+        <div class="t-people">Mod: <b>Chris Vanloon</b> · <b>Anh Nguyen</b> (Deputy CEO, Equities &amp; Derivatives, Techcom Securities), <b>Marc Knapper</b>, <b>Lu Zhou</b>, <b>Thomas Lanyi</b>, <b>Shimna Chandan</b></div>
+        <div class="t-loc">📍 Plenary Hall</div>
+      </div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">13:30 – 13:45</div><div class="t-title">What It Takes to Attract International Capital</div><div class="t-people"><b>Lu Zhou</b></div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">14:30 – 15:15</div><div class="t-title">Structuring Funds in VIFC: What Will Actually Work?</div><div class="t-people">Mod: <b>Tyler McElhaney</b> · <b>Chung Seck</b>, <b>Will Ross</b>, <b>Tri Nguyen</b></div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">15:15 – 15:30</div><div class="t-title">Closing Remarks (Part I)</div><div class="t-people"><b>Chris Vanloon</b></div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">15:30 – 16:45</div><div class="t-title">VIFC Topic Tables: From Forum to Community (Workshops)</div><div class="t-people">Trade &amp; Supply Chain Finance — <b>Huyen Pham</b> · Climate &amp; Energy Finance — <b>Matthew McGarvey</b> · Private Capital — <b>Max-F. Scheichenost</b> · Fintech, Digital Assets — <b>Phuc Thai</b> · Talent Ecosystem — <b>Dr. Do Thi Thanh Nhan</b></div><div class="t-loc">📍 Auditorium</div></div></div>
+    </div>
+
+    <div class="section-label">Tối — Private Dinner của TCB</div>
+    <div class="evening-card">
+      <div class="time">19:00–21:00</div>
+      <div>
+        <div class="title">🎙️ TCB Exclusive Dinner — Anh Minh phát biểu Closing Remarks</div>
+        <div class="desc">Furama Resort Gallery · TCB participants + Guests (~30)</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== PRIVATE MEETINGS ===================== -->
+  <div class="day-panel" id="day3">
+    <div class="section-label">Private meetings — A. Tuấn Anh, c. Linh, Tùng</div>
+    <div class="priv-grid">
+      <div class="priv-item">
+        <div>
+          <div class="who">Infrastructure debt, real estate project financing, private credit</div>
+          <div class="role">Anh Nguyen — Principal, Head of Fund Management</div>
+        </div>
+        <div>
+          <div class="when">Thứ 5, 9/7 · 14:00–15:00</div>
+          <div class="loc">Hue Room, 2F, Ariyana Convention Centre</div>
+        </div>
+      </div>
+      <div class="priv-item">
+        <div>
+          <div class="who">Fixed-income assets, Infrastructure bonds, Asset-Backed Securities</div>
+          <div class="role">Will Ross — Chief Client Officer, Dragon Capital</div>
+        </div>
+        <div>
+          <div class="when">Thứ 5, 9/7 · 16:00–17:00</div>
+          <div class="loc">Hue Room, 2F, Furama Resort Da Nang</div>
+        </div>
+      </div>
+      <div class="priv-item">
+        <div>
+          <div class="who">Explore infrastructure sponsors and refinancing opportunities</div>
+          <div class="role">Li Fan — Partner / Managing Director, Warburg Pincus LLC</div>
+        </div>
+        <div>
+          <div class="when">Thứ 6, 10/7 · 10:00–11:00</div>
+          <div class="loc">Ha Long Room (TBC), 2F, Furama Resort Da Nang</div>
+        </div>
+      </div>
+      <div class="priv-item">
+        <div>
+          <div class="who">Market Development and Mechanism in IFC</div>
+          <div class="role">Jeffrey Singer — Former CEO, Dubai International Finance Center</div>
+        </div>
+        <div>
+          <div class="when">Thứ 6, 10/7 · 10:15–11:15</div>
+          <div class="loc">Hue Room, 2F, Ariyana Convention Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Tổng hợp Agenda của Techcombank</div>
+    <div class="timeline">
+      <div class="t-item"><div class="t-card"><div class="t-time">Day 0 — 08/7 · 18:00–19:30</div><div class="t-title">Welcome cocktails</div><div class="t-loc">📍 Furama Resort</div><div class="t-people">All participants who can join</div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">Day 1 — 09/7 · 10:15–10:30</div><div class="t-title">Keynote: A Domestic Market Perspective on the VIFC</div><div class="t-people"><b>Jens Lottner</b></div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">Day 1 — 09/7 · 12:45–14:00</div><div class="t-title">Luncheon: IFCs &amp; the Future of Tech-enabled Finance</div><div class="t-people"><b>Jens Lottner</b>, <b>Xuan Minh</b></div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">Day 1 — 09/7 · 15:00–15:15</div><div class="t-title">Interview with VTV</div><div class="t-people"><b>Jens Lottner</b></div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">Day 1 — 09/7 · 15:30–16:00</div><div class="t-title">Interview with Nikkei</div><div class="t-people"><b>Jens Lottner</b></div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">Day 1 — 09/7 · 19:00–20:30</div><div class="t-title">Invite only VFF dinner</div><div class="t-people"><b>Jens Lottner</b>, <b>Xuan Minh</b>, PC</div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">Day 2 — 10/7 · 11:45–12:30</div><div class="t-title">Panel: Where Will the Next $100B Go?</div><div class="t-people"><b>Huy Doan</b>, CIBG</div></div></div>
+      <div class="t-item highlight"><div class="t-card"><div class="t-time">Day 2 — 10/7 · 13:45–14:30</div><div class="t-title">Panel: Mobilizing International Institutional Capital</div><div class="t-people"><b>Tuan Anh TCBS</b></div></div></div>
+      <div class="t-item"><div class="t-card"><div class="t-time">Day 2 — 10/7 · 19:00–21:00</div><div class="t-title">TCB Exclusive Dinner</div><div class="t-people">TCB participants + Guests (~30)</div></div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Vietnam Financial Forum 2026 — Ariyana International Convention Centre, Đà Nẵng</footer>
+
+<script>
+  const dayBtns = document.querySelectorAll('.day-btn');
+  dayBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      dayBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.day-panel').forEach(p=>p.classList.remove('active'));
+      document.getElementById(btn.dataset.day).classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+
+  document.querySelectorAll('.track-tabs').forEach(group=>{
+    const tabs = group.querySelectorAll('.track-tab');
+    tabs.forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        tabs.forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');
+        const panels = document.querySelectorAll('.track-panel');
+        panels.forEach(p=>{
+          if(p.id.startsWith(group.dataset.group+'-')) p.classList.remove('active');
+        });
+        document.getElementById(tab.dataset.target).classList.add('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
